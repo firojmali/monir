@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
-    <ProductPage />
+    <el-tag type="primary">dfghfghfg</el-tag>
   </div>
 </template>
 <script lang="ts" setup>
-import ProductPage from '@/views/product/ProductPage.vue'
+
 </script>

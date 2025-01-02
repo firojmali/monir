@@ -8,95 +8,10 @@ import serverdata from './sedoserver/serveritems'
 </script>
 
 <template>
-  <body :class="{ bgloadding: loadding }" class="w-full">
-    <el-button v-if="is_loged_in" @click="logout" type="primary" class="m-2">Logout</el-button>
-    <div class="loadding" v-if="loadding || logoutloadding">
-      <div class="loader"></div>
-      loadding
-    </div>
-    <div v-else-if="!is_loged_in">
-      <div class="login-body shadow-otto">
-        <h3 style="text-align: center">Login</h3>
-        <div class="useridbody">
-          <span>Your User ID:</span><span><input type="text" v-model="loginfeilds.user_id" /></span>
-        </div>
-        <div class="passwordbody">
-          <span>Your Password:</span
-          ><span><input type="password" v-model="loginfeilds.password" /></span>
-        </div>
-        <button class="button-add-cart w-full text-center" role="button" @click="userLogin">
-          Log In
-        </button>
-      </div>
-    </div>
-    <div v-else class="w-full p-4">
-      <div class="w-full h-12 fixed">
-        <el-menu
-          ellipsis
-          :default-active="getrouternameindex()"
-          class="el-menu-popper-demo"
-          mode="horizontal"
-          :popper-offset="16"
-          style="max-width: 600px"
-        >
-          <templete v-for="menuItem in menu" :key="menuItem.menu_index">
-            <el-menu-item
-              v-if="menuItem.sub.length < 1"
-              :index="menuItem.menu_index"
-              @click="gotoroute(menuItem.router_to)"
-              >{{ menuItem.label }}</el-menu-item
-            >
-            <el-sub-menu v-else :index="menuItem.menu_index">
-              <template #title>{{ menuItem.label }}</template>
-              <el-menu-item
-                v-for="menuItems in menuItem.sub"
-                :key="menuItems.menu_index"
-                :index="menuItem.menu_index + '-' + menuItems.menu_index"
-                @click="gotoroute(menuItems.router_to)"
-                >{{ menuItems.label }}</el-menu-item
-              >
-            </el-sub-menu>
-          </templete>
-          <!-- <el-menu-item
-            v-for="menuItem in menu"
-            :key="menuItem.menu_index"
-            :index="menuItem.menu_index"
-            ><RouterLink :to="menuItem.router_to">{{ menuItem.label }}</RouterLink></el-menu-item
-          > -->
-          <!-- <el-sub-menu index="2">
-            <template #title>Workspace</template>
-            <el-menu-item index="2-1">item one</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
-            <el-menu-item index="2-3">item three</el-menu-item>
-            <el-sub-menu index="2-4">
-              <template #title>item four</template>
-              <el-menu-item index="2-4-1">item one</el-menu-item>
-              <el-menu-item index="2-4-2">item two</el-menu-item>
-              <el-menu-item index="2-4-3">item three</el-menu-item>
-            </el-sub-menu>
-          </el-sub-menu>
-          <el-sub-menu index="3" :popper-offset="8">
-            <template #title>Override Popper Offset</template>
-            <el-menu-item index="3-1">item one</el-menu-item>
-            <el-menu-item index="3-2">item two</el-menu-item>
-            <el-menu-item index="3-3">item three</el-menu-item>
-            <el-sub-menu index="3-4" :popper-offset="20">
-              <template #title>override child</template>
-              <el-menu-item index="3-4-1">item one</el-menu-item>
-              <el-menu-item index="3-4-2">item two</el-menu-item>
-              <el-menu-item index="3-4-3">item three</el-menu-item>
-            </el-sub-menu>
-          </el-sub-menu>
-          <el-menu-item index="4" disabled>Info</el-menu-item>
-          <el-menu-item index="5">Orders</el-menu-item> -->
-        </el-menu>
-      </div>
-      <div class="h-12 w-full"></div>
-      <div class="w-full h-full shadow-md router-container m-4">
-        <RouterView />
-      </div>
-    </div>
-  </body>
+  <body>
+  <div class=" w-full">sa</div>
+  <RouterView />
+</body>
 </template>
 <script lang="ts">
 export default {
@@ -165,10 +80,7 @@ export default {
     }
   },
   created() {
-    this.testserver()
-    var presentdt = parseInt(String(Date.now() / 1000))
-    this.checkLogIn()
-    this.getcommondatas(presentdt)
+    //this.checkLogIn()
   },
   watch: {
     is_loged_in(newV, oldV) {
