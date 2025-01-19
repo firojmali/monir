@@ -1,17 +1,41 @@
 <template>
   <div class="item">
-    <i>
-      <slot name="icon"></slot>
-    </i>
-    <div class="details">
-      <h3>
-        <slot name="heading"></slot>
-      </h3>
-      <slot></slot>
-    </div>
+    sdfsd
   </div>
 </template>
-
+<script lang="ts" setup>
+import { getDivisions } from '@/api/bd';
+</script>
+<script lang="ts">
+export default {
+  name: 'WelcomeItem',
+  data() {
+    const divisions: any = []
+    
+    return {
+      divisions,
+    }
+  },
+  mounted() {
+    this.divisions = this.getdivisions()
+  },
+  methods: {
+    getdivisions() {
+      return new Promise((resolve, reject) => {
+        getDivisions()
+          .then((res: any) => {
+            console.log(res)
+            res
+          })
+          .catch((err: string) => {
+            reject(false)
+            err
+          })
+      })
+    }
+  }
+}
+</script>
 <style scoped>
 .item {
   margin-top: 2rem;

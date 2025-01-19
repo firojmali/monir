@@ -2,15 +2,15 @@ const type = 1 //1=server     0=local
 
 import axios from 'axios'
 import { ElMessage } from 'element-plus' //ElMessageBox,
-import { getToken, getTokenId } from '@/utils/auth'
+//import { getToken, getTokenId } from '@/utils/auth'
 
 //import store from '@/store'
 //import { getToken } from '@/utils/auth'
 
-const token = getToken()
-const tokenid = getTokenId()
-const base_local = 'https://www.bangladesh.gov.bd'
-const base_remote = 'https://www.bangladesh.gov.bd'
+//const token = getToken()
+//const tokenid = getTokenId()
+const base_local = 'https://login.dhaka.gov.bd/api/v1/theme/ajax'//'https://www.bangladesh.gov.bd'
+const base_remote = 'https://login.dhaka.gov.bd/api/v1/theme/ajax'//'https://www.bangladesh.gov.bd'
 let base_active = base_local
 if (type) {
   base_active = base_remote
@@ -33,7 +33,7 @@ service.interceptors.request.use(
     // }
     //config.headers['token'] = token
     //config.headers['tokenid'] = tokenid
-    config.headers['Origin'] = 'https://www.bangladesh.gov.bd'
+    //config.headers['Origin'] = 'https://www.bangladesh.gov.bd'
     return config
   },
   (error) => {
